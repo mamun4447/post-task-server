@@ -51,6 +51,18 @@ app.post("/users", async (req, res) => {
   }
 });
 
+// //==> Get All Users <===//
+// app.get("/users", async (req, res) => {
+//   try {
+//     const result = await usersCollection.find({}).toArray();
+    
+//     res.send({ success: true, data: data });
+//   } catch (error) {
+//     console.log(error);
+//     res.send({success:false,error:error.message})
+//   }
+// })
+
 //==Get User===//
 app.get("/users/:email", async (req, res) => {
   try {
@@ -120,7 +132,7 @@ app.delete("/content/:id", async (req, res) => {
     console.log(error);
     res.send({
       success: false,
-      message: error.message,
+      error: error.message,
     });
   }
 });
