@@ -1,22 +1,22 @@
 require("dotenv").config();
-const express = require("express");
 const cors = require("cors");
+const express = require("express");
 const bodyParser = require("body-parser");
 
-const port = process.env.PORT || 5000;
 const app = express();
+app.use(express());
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const port = process.env.PORT || 5000;
+app.use(cors());
+app.use(express.json());
 
 app.use(bodyParser());
-app.use(express());
-app.use(cors());
 
 //===MongoDB===//
 // UQpn4YPmaciFztzn;
 
-const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const { success } = require("daisyui/src/colors");
-const uri =
-  "mongodb+srv://userdashboard:EhgKjYptDK9kblMf@cluster0.otp6uvz.mongodb.net/?retryWrites=true&w=majority";
+// const { success } = require("daisyui/src/colors");
+const uri = `mongodb+srv://userdashboard:EhgKjYptDK9kblMf@cluster0.otp6uvz.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
